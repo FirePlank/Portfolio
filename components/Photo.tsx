@@ -8,21 +8,16 @@ const Photo = () => {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{
-                duration: 0.4, delay: 2, ease: "easeIn"
+                duration: 0.25, delay: 0.39, ease: "easeIn"
             }}
             className="relative"
         >
-            <motion.div
-                initial={{opacity: 0}}
-                animate={{opacity: 1}}
-                transition={{
-                    duration: 0.4, delay: 2.4, ease: "easeInOut"
-                }}
+            <div
                 className="w-[290px] h-[290px] xl:w-[490px] xl:h-[490px] rounded-full overflow-hidden flex items-center justify-center"
             >
                 <Image src="/assets/profile.png" alt="profile picture" priority quality={100} width={500} height={500}
                        className="object-cover object-center"/>
-            </motion.div>
+            </div>
 
             <motion.svg
                 className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"

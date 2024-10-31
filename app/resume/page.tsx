@@ -1,5 +1,4 @@
 "use client";
-
 import {
     FaHtml5,
     FaCss3,
@@ -167,7 +166,7 @@ const skills = {
 const Resume = () => {
     return <motion.div
         initial={{opacity: 0}}
-        animate={{opacity: 1, transition: {duration: 0.4, delay: 2.4, ease: "easeIn"}}}
+        animate={{opacity: 1, transition: {duration: 0.25, delay: 0.4, ease: "easeIn"}}}
         className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
     >
         <div className="container mx-auto">
@@ -263,7 +262,7 @@ const Resume = () => {
                             <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
                                 {skills.items.map((skill, index) => (
                                     <li key={index}>
-                                        <TooltipProvider>
+                                        <TooltipProvider delayDuration={100}>
                                             <Tooltip>
                                                 <TooltipTrigger
                                                     className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
