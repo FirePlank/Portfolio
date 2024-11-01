@@ -54,9 +54,9 @@ const Projects = () => {
     useEffect(() => {
         const loadImageDimensions = async () => {
             const dimensions = await Promise.all(projects.map(project => {
-                return new Promise(resolve => {
+                return new Promise<{ width: number; height: number }>(resolve => {
                     if (project.image.endsWith('.mp4')) {
-                        resolve({width: '100%', height: '100%'});
+                        resolve({width: 100, height: 100});
                     } else {
                         const img = new window.Image();
                         img.src = project.image;
