@@ -24,7 +24,7 @@ const projects = [
         num: '02',
         title: 'Shortlang',
         description: 'A programming language designed for code golfing and competitive programming.',
-        stack: [{name: 'Rust'}, {name: 'LLVM'}, {name: 'Interpreter'}, {name: 'Compiler'}],
+        stack: [{name: 'Rust'}, {name: 'Interpreter'}, {name: 'Compiler'}],
         image: '/assets/projects/shortlang.jpeg',
         github: 'https://github.com/ShortLang/ShortLang'
     },
@@ -37,6 +37,14 @@ const projects = [
         live: 'https://cresliant.github.io',
         github: 'https://github.com/Cresliant/Cresliant'
     },
+    {
+        num: '04',
+        title: 'Hydrochess',
+        description: 'A chess engine written in Rust, with a focus on speed and efficiency. It has a rating of 2000+ on Lichess.',
+        stack: [{name: 'Rust'}, {name: 'Data Structures'}, {name: 'Algorithms'}],
+        image: '/assets/projects/chess.jpeg',
+        github: 'https://github.com/FirePlank/HydroChess'
+    }
 ];
 
 const Projects = () => {
