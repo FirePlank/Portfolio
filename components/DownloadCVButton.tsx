@@ -19,14 +19,14 @@ const DownloadCVButton = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
                 <DropdownMenuItem asChild>
-                    <a href="/assets/Ansioluettelo.pdf" className="block px-4 py-2 text-sm"
+                    <a href="/assets/Ansioluettelo.pdf" className="block px-4 py-2 text-sm hover:cursor-pointer"
                        target="_blank">
                         Finnish Version
                     </a>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator/>
                 <DropdownMenuItem asChild>
-                    <a href="/assets/CV.pdf" className="block px-4 py-2 text-sm" target="_blank">
+                    <a href="/assets/CV.pdf" className="block px-4 py-2 text-sm hover:cursor-pointer" target="_blank">
                         English Version
                     </a>
                 </DropdownMenuItem>
