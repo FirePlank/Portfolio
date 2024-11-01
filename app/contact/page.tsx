@@ -98,6 +98,10 @@ const Contact = () => {
         setInfo('CAPTCHA expired. Please try again.');
     }
 
+    if (!process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY) {
+        throw new Error('NEXT_PUBLIC_HCAPTCHA_SITEKEY is not defined');
+    }
+
     return <motion.section
         initial={{opacity: 0}}
         animate={{opacity: 1, transition: {duration: 0.25, delay: 0.4, ease: "easeIn"}}}
@@ -109,7 +113,6 @@ const Contact = () => {
             sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY}
             onVerify={onCAPTCHAChange}
             onExpire={onCAPTCHAExpire}
-            style={{position: 'absolute', width: 0, height: 0, overflow: 'hidden', pointerEvents: 'none'}}
         />
         <div className="container mx-auto flex-grow">
             <div className="flex flex-col xl:flex-row gap-[30px]">
@@ -138,7 +141,7 @@ const Contact = () => {
                                 disabled={isLoading || !isFormValid()}>
                             {isLoading && <div className="loader mr-3"/>}{isLoading ? 'Sending...' : 'Send message'}
                         </Button>
-                        {info && <p className='text-accent text-sm'>
+                        {info && !error && <p className='text-accent text-sm'>
                             {info}
                         </p>
                         }
