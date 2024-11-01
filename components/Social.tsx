@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import {Button} from "@/components/ui/button";
 import {FaGithub, FaLinkedin, FaTwitter} from "react-icons/fa";
 
 const socials = [

@@ -10,7 +10,7 @@ import {
     FaRust,
     FaPython
 } from "react-icons/fa";
-import {SiTailwindcss, SiNextdotjs, SiCplusplus} from "react-icons/si";
+import {SiTailwindcss, SiNextdotjs} from "react-icons/si";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 import {ScrollArea} from "@/components/ui/scroll-area";
