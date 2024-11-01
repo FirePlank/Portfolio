@@ -39,7 +39,7 @@ const getExactYears = (startDate: Date, endDate: Date) => {
 
 const about = {
     title: 'About Me',
-    description: 'I am a software developer with a passion for learning and building new things. I have experience with various technologies and frameworks.',
+    description: 'I am a software developer with a passion for learning and building new things. My expertise spans multiple technologies and frameworks, allowing me to adapt and excel in various projects.',
     info: [
         {
             fieldName: 'Name',
@@ -71,28 +71,23 @@ const about = {
 const experience = {
     icon: <FaBriefcase/>,
     title: 'Experience',
-    description: 'I have experience with various technologies and frameworks. I have worked on multiple projects and have experience with both frontend and backend development.',
+    description: 'I have experience working in diverse environments and collaborating effectively within teams.',
     items: [
         {
-            company: 'Company A',
-            role: 'Software Developer',
+            company: 'Fiverr',
+            role: 'Freelancer',
+            duration: '2020 - 2021',
+        },
+        {
+            company: 'Mobile App Development',
+            role: 'Entrepreneur',
+            duration: '2024 - Present',
+        },
+        {
+            company: 'Open Source',
+            role: 'Contributor',
             duration: '2020 - Present',
         },
-        {
-            company: 'Company B',
-            role: 'Software Developer',
-            duration: '2018 - 2020',
-        },
-        {
-            company: 'Company C',
-            role: 'Software Developer',
-            duration: '2016 - 2018',
-        },
-        {
-            company: 'Company D',
-            role: 'Software Developer',
-            duration: '2014 - 2016',
-        }
     ]
 }
 
@@ -112,8 +107,8 @@ const education = {
             duration: '2021 - 2024',
         },
         {
-            institution: 'Online Course',
-            degree: 'Python Programming',
+            institution: 'Udemy',
+            degree: 'Programming Courses',
             duration: '2020',
         }
     ]
@@ -122,7 +117,7 @@ const education = {
 const skills = {
     icon: <FaTools/>,
     title: 'Skills',
-    description: 'I have experience with various technologies and frameworks. I am proficient in the following:',
+    description: 'I have experience with various technologies and frameworks, which have enabled me to tackle a wide range of projects efficiently. My adaptability and continuous learning mindset ensure that I stay updated with the latest industry trends.',
     items: [
         {
             icon: <FaHtml5/>,
@@ -151,10 +146,6 @@ const skills = {
         {
             icon: <FaPython/>,
             name: 'Python',
-        },
-        {
-            icon: <SiCplusplus/>,
-            name: 'C++',
         },
         {
             icon: <FaRust/>,
