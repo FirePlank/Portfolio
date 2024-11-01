@@ -128,7 +128,7 @@ const Contact = () => {
                             <Input type="email" placeholder="Email" value={email}
                                    onChange={(e) => setEmail(e.target.value)} required/>
                         </div>
-                        <Textarea placeholder="Message" className="h-[200px]" value={message}
+                        <Textarea placeholder="Message" className="md:h-[220px] h-[150px]" value={message}
                                   onChange={(e) => setMessage(e.target.value)} required/>
                         {error && <p className='text-red-500 text-sm'>
                             {info}

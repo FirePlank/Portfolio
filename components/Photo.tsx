@@ -15,7 +15,7 @@ const Photo = () => {
             <div
                 className="w-[290px] h-[290px] xl:w-[490px] xl:h-[490px] rounded-full overflow-hidden flex items-center justify-center"
             >
-                <Image src="/assets/profile.jpeg" alt="profile picture" priority quality={100} width={500} height={500}
+                <Image src="/assets/profile.webp" alt="profile picture" priority quality={100} width={500} height={500}
                        className="object-cover object-center"/>
             </div>
 
