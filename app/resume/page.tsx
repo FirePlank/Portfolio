@@ -51,7 +51,7 @@ const about = {
         },
         {
             fieldName: 'Email',
-            fieldValue: 'contact@fireplank.xyz'
+            fieldValue: 'contact@jessesissala.com'
         },
         {
             fieldName: 'Experience',

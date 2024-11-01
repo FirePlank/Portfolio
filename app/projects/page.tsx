@@ -22,20 +22,20 @@ const projects = [
     },
     {
         num: '02',
-        title: 'Shortlang',
-        description: 'A programming language designed for code golfing and competitive programming.',
-        stack: [{name: 'Rust'}, {name: 'Interpreter'}, {name: 'Compiler'}],
-        image: '/assets/projects/shortlang.webp',
-        github: 'https://github.com/ShortLang/ShortLang'
-    },
-    {
-        num: '03',
         title: 'Cresliant',
         description: 'A powerful node-based image editor made in Python, offering intuitive image manipulation and enhancement through a user-friendly interface.',
         stack: [{name: 'Python'}, {name: 'Dear PyGui'}, {name: 'Pillow'}],
         image: '/assets/projects/cresliant-demo.mp4',
         live: 'https://cresliant.github.io',
         github: 'https://github.com/Cresliant/Cresliant'
+    },
+    {
+        num: '03',
+        title: 'Shortlang',
+        description: 'A programming language designed for code golfing and competitive programming.',
+        stack: [{name: 'Rust'}, {name: 'Interpreter'}, {name: 'Compiler'}],
+        image: '/assets/projects/shortlang.webp',
+        github: 'https://github.com/ShortLang/ShortLang'
     },
     {
         num: '04',
@@ -54,9 +54,9 @@ const Projects = () => {
     useEffect(() => {
         const loadImageDimensions = async () => {
             const dimensions = await Promise.all(projects.map(project => {
-                return new Promise(resolve => {
+                return new Promise<{ width: number; height: number }>(resolve => {
                     if (project.image.endsWith('.mp4')) {
-                        resolve({width: '100%', height: '100%'});
+                        resolve({width: 100, height: 100});
                     } else {
                         const img = new window.Image();
                         img.src = project.image;
