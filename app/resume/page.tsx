@@ -51,7 +51,7 @@ const about = {
         },
         {
             fieldName: 'Email',
-            fieldValue: 'contact@jessesissala.com'
+            fieldValue: 'jesse.sissala@gmail.com'
         },
         {
             fieldName: 'Experience',
