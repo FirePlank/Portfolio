@@ -18,7 +18,7 @@ const data = [
     {
         icon: <FaEnvelope/>,
         label: 'Email',
-        value: 'contact@jessesissala.com'
+        value: 'jesse.sissala@gmail.com'
     },
     {
         icon: <FaDiscord/>,
