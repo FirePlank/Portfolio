@@ -15,6 +15,7 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 import {ScrollArea} from "@/components/ui/scroll-area";
 import {motion} from "framer-motion";
+import { useTranslation } from 'react-i18next';
 
 const getExactYears = (startDate: Date, endDate: Date) => {
     const start = new Date(startDate);
@@ -37,87 +38,87 @@ const getExactYears = (startDate: Date, endDate: Date) => {
     return Math.round(years + months / 12 + days / 365);
 };
 
-const about = {
-    title: 'About Me',
-    description: 'I am a software developer with a passion for learning and building new things. My expertise spans multiple technologies and frameworks, allowing me to adapt and excel in various projects.',
+const getAboutData = (t: any) => ({
+    title: t('resume.aboutMe'),
+    description: t('resume.aboutDescription'),
     info: [
         {
-            fieldName: 'Name',
+            fieldName: t('resume.name'),
             fieldValue: 'Jesse Sissala'
         },
         {
-            fieldName: 'Phone',
+            fieldName: t('resume.phone'),
             fieldValue: '(+358) 45 804 1445'
         },
         {
-            fieldName: 'Email',
+            fieldName: t('resume.email'),
             fieldValue: 'jesse.sissala@gmail.com'
         },
         {
-            fieldName: 'Experience',
-            fieldValue: `${getExactYears(new Date('2020-03-01'), new Date())} years`
+            fieldName: t('resume.experienceField'),
+            fieldValue: `${getExactYears(new Date('2020-03-01'), new Date())} ${t('resume.years')}`
         },
         {
-            fieldName: 'Location',
-            fieldValue: 'Finland'
+            fieldName: t('resume.location'),
+            fieldValue: t('resume.locationValue')
         },
         {
-            fieldName: 'Languages',
-            fieldValue: 'English, Finnish, Swedish'
+            fieldName: t('resume.languages'),
+            fieldValue: t('resume.languagesValue')
         }
     ]
-}
+});
 
-const experience = {
+const getExperienceData = (t: any) => ({
     icon: <FaBriefcase/>,
-    title: 'Experience',
-    description: 'I have experience working in diverse environments and collaborating effectively within teams.',
+    title: t('resume.experience'),
+    description: t('resume.experienceDescription'),
     items: [
         {
             company: 'Fiverr',
-            role: 'Freelancer',
+            role: t('resume.freelancer'),
             duration: '2020 - 2021',
         },
         {
-            company: 'Mobile App Development',
-            role: 'Entrepreneur',
+            company: t('resume.mobileAppDevelopment'),
+            role: t('resume.entrepreneur'),
             duration: '2024 - Present',
         },
         {
-            company: 'Open Source',
-            role: 'Contributor',
+            company: t('resume.openSource'),
+            role: t('resume.contributor'),
             duration: '2020 - Present',
         },
     ]
-}
+});
 
-const education = {
+const getEducationData = (t: any) => ({
     icon: <FaGraduationCap/>,
-    title: 'Education',
-    description: 'I have studied at several institutions and have taken courses on various topics.',
+    title: t('resume.education'),
+    description: t('resume.educationDescription'),
     items: [
         {
-            institution: 'Tampere University of Applied Sciences',
-            degree: 'Information Technology',
+            institution: t('resume.tampereUniversity'),
+            degree: t('resume.informationTechnology'),
             duration: '2024 - 2028',
         },
         {
-            institution: 'Nokia High School',
-            degree: 'High School Diploma',
+            institution: t('resume.nokiaHighSchool'),
+            degree: t('resume.highSchoolDiploma'),
             duration: '2021 - 2024',
         },
         {
-            institution: 'Udemy',
-            degree: 'Programming Courses',
+            institution: t('resume.udemy'),
+            degree: t('resume.programmingCourses'),
             duration: '2020',
         }
     ]
-}
+});
 
-const skills = {
+const getSkillsData = (t: any) => ({
     icon: <FaTools/>,
-    title: 'Skills',
-    description: 'I have experience with various technologies and frameworks, which have enabled me to tackle a wide range of projects efficiently. My adaptability and continuous learning mindset ensure that I stay updated with the latest industry trends.',
+    title: t('resume.skills'),
+    description: t('resume.skillsDescription'),
     items: [
         {
             icon: <FaHtml5/>,
@@ -152,9 +153,15 @@ const skills = {
             name: 'Rust',
         },
     ]
-}
+});
 
 const Resume = () => {
+    const { t } = useTranslation();
+    const about = getAboutData(t);
+    const experience = getExperienceData(t);
+    const education = getEducationData(t);
+    const skills = getSkillsData(t);
+    
     return <motion.div
         initial={{opacity: 0}}
         animate={{opacity: 1, transition: {duration: 0.25, delay: 0.4, ease: "easeIn"}}}
@@ -163,10 +170,10 @@ const Resume = () => {
         <div className="container mx-auto">
             <Tabs defaultValue="about" className="flex flex-col xl:flex-row gap-[60px]">
                 <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-4">
-                    <TabsTrigger value="about">About Me</TabsTrigger>
-                    <TabsTrigger value="experience">Experience</TabsTrigger>
-                    <TabsTrigger value="education">Education</TabsTrigger>
-                    <TabsTrigger value="skills">Skills</TabsTrigger>
+                    <TabsTrigger value="about">{t('resume.aboutMe')}</TabsTrigger>
+                    <TabsTrigger value="experience">{t('resume.experience')}</TabsTrigger>
+                    <TabsTrigger value="education">{t('resume.education')}</TabsTrigger>
+                    <TabsTrigger value="skills">{t('resume.skills')}</TabsTrigger>
                 </TabsList>
 
                 {/* Content */}

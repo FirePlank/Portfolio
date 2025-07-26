@@ -42,3 +42,4 @@ next-env.d.ts
 # Custom
 .idea
 .vercel
+.env*.local

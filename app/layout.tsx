@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
+import I18nProvider from "@/components/I18nProvider";
 
 const jetbrainsMono = JetBrains_Mono({
     subsets: ["latin"],
@@ -26,11 +27,13 @@ export default function RootLayout({
         <body
             className={`${jetbrainsMono.variable} antialiased`}
         >
-        <Header/>
-        <StairTransition/>
-        <PageTransition>
-            {children}
-        </PageTransition>
+        <I18nProvider>
+            <Header/>
+            <StairTransition/>
+            <PageTransition>
+                {children}
+            </PageTransition>
+        </I18nProvider>
         </body>
         </html>
     );

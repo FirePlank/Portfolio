@@ -7,27 +7,28 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 import {motion} from "framer-motion";
 import React, {useEffect} from "react";
 import {submitForm} from "@/app/contact/actions";
-
+import { useTranslation } from 'react-i18next';
 
 const data = [
     {
         icon: <FaPhoneAlt/>,
-        label: 'Phone',
+        label: 'contact.phone',
         value: '(+358) 45 804 1445'
     },
     {
         icon: <FaEnvelope/>,
-        label: 'Email',
+        label: 'contact.email',
         value: 'jesse.sissala@gmail.com'
     },
     {
         icon: <FaDiscord/>,
-        label: 'Discord',
+        label: 'contact.discord',
         value: '@fireplank'
     }
 ]
 
 const Contact = () => {
+    const { t } = useTranslation();
     const hcaptchaRef: React.RefObject<HCaptcha> = React.createRef();
     const [name, setName] = React.useState('');
     const [email, setEmail] = React.useState('');
@@ -52,7 +53,7 @@ const Contact = () => {
     useEffect(() => {
         if (!isFormValid() && name !== '' && email !== '' && message !== '') {
             setError(true);
-            setInfo('Please fill in all fields correctly.');
+            setInfo(t('contact.fillFieldsCorrectly'));
             return;
         } else {
             setError(false);
@@ -79,7 +80,7 @@ const Contact = () => {
                 setName('');
                 setEmail('');
                 setMessage('');
-                setInfo('Message has been successfully sent!');
+                setInfo(t('contact.successMessage'));
             } else {
                 console.log('Response failed!');
                 setError(true);
@@ -95,7 +96,7 @@ const Contact = () => {
 
     const onCAPTCHAExpire = () => {
         setIsLoading(false);
-        setInfo('CAPTCHA expired. Please try again.');
+        setInfo(t('contact.captchaExpired'));
     }
 
     if (!process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY) {
@@ -119,19 +120,18 @@ const Contact = () => {
                 <div className="xl:w-[54%] order-2 xl:order-none">
                     <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl" onSubmit={onSubmit}>
                         <h3 className="text-4xl text-accent">
-                            Contact me
+                            {t('contact.title')}
                         </h3>
                         <p className="text-white/60">
-                            I&#39;m always open to new opportunities, collaborations, and projects. Feel free to reach
-                            out to me.
+                            {t('contact.description')}
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <Input type="text" placeholder="Name" value={name}
+                            <Input type="text" placeholder={t('contact.namePlaceholder')} value={name}
                                    onChange={(e) => setName(e.target.value)}/>
-                            <Input type="email" placeholder="Email" value={email}
+                            <Input type="email" placeholder={t('contact.emailPlaceholder')} value={email}
                                    onChange={(e) => setEmail(e.target.value)} required/>
                         </div>
-                        <Textarea placeholder="Message" className="md:h-[220px] h-[150px]" value={message}
+                        <Textarea placeholder={t('contact.messagePlaceholder')} className="md:h-[220px] h-[150px]" value={message}
                                   onChange={(e) => setMessage(e.target.value)} required/>
                         {error && <p className='text-red-500 text-sm'>
                             {info}
@@ -139,7 +139,7 @@ const Contact = () => {
                         }
                         <Button size="md" className={`max-w-40 ${!isFormValid() ? 'cursor-not-allowed' : ''}`}
                                 disabled={isLoading || !isFormValid()}>
-                            {isLoading && <div className="loader mr-3"/>}{isLoading ? 'Sending...' : 'Send message'}
+                            {isLoading && <div className="loader mr-3"/>}{isLoading ? t('contact.sending') : t('contact.sendMessage')}
                         </Button>
                         {info && !error && <p className='text-accent text-sm'>
                             {info}
@@ -159,7 +159,7 @@ const Contact = () => {
                                 </div>
                                 <div className="flex-1">
                                     <p className="text-white/60">
-                                        {item.label}
+                                        {t(item.label)}
                                     </p>
                                     <p className="text-xl">
                                         {item.value}
@@ -172,10 +172,9 @@ const Contact = () => {
             </div>
         </div>
         <footer className="text-center text-white/60 mt-[3.5rem] max-w-[95%] text-sm">
-            This site is protected by hCaptcha. Its
-            <a href="https://www.hcaptcha.com/privacy" className="text-accent" target="_blank"> Privacy Policy</a> and
-            <a href="https://www.hcaptcha.com/terms" className="text-accent" target="_blank"> Terms of
-                Service</a> apply.
+            {t('contact.hcaptchaText')}
+            <a href="https://www.hcaptcha.com/privacy" className="text-accent" target="_blank">{t('contact.privacyPolicy')}</a> {t('contact.and')}
+            <a href="https://www.hcaptcha.com/terms" className="text-accent" target="_blank">{t('contact.termsOfService')}</a>{t('contact.apply')}
         </footer>
     </motion.section>
 };

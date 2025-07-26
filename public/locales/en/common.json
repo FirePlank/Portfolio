@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Home",
+    "resume": "Resume", 
+    "projects": "Projects",
+    "contact": "Contact me"
+  },
+  "home": {
+    "title": "Software Developer",
+    "greeting": "Hello, I'm",
+    "name": "Jesse Sissala",
+    "description": "I am passionate about learning and building with diverse technologies and frameworks.",
+    "downloadCV": "Download CV"
+  },
+  "cv": {
+    "downloadCV": "Download CV",
+    "finnishVersion": "Finnish Version",
+    "englishVersion": "English Version"
+  },
+  "stats": {
+    "yearsExperience": "Years of experience",
+    "projectsCompleted": "Projects completed", 
+    "technologiesUsed": "Technologies used",
+    "codeCommits": "Code commits",
+    "starsReceived": "Stars received"
+  },
+  "contact": {
+    "title": "Contact me",
+    "description": "I'm always open to new opportunities, collaborations, and projects. Feel free to reach out to me.",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Message",
+    "sendMessage": "Send message",
+    "sending": "Sending...",
+    "successMessage": "Message has been successfully sent!",
+    "fillFieldsCorrectly": "Please fill in all fields correctly.",
+    "captchaExpired": "CAPTCHA expired. Please try again.",
+    "phone": "Phone",
+    "email": "Email",
+    "discord": "Discord",
+    "hcaptchaText": "This site is protected by hCaptcha. Its",
+    "privacyPolicy": " Privacy Policy",
+    "termsOfService": " Terms of Service",
+    "and": "and",
+    "apply": " apply."
+  },
+  "projects": {
+    "visitWebsite": "Visit website",
+    "viewSource": "View source",
+    "items": [
+      {
+        "title": "Fitsmrt",
+        "description": "An AI fitness trainer and planner mobile app that creates personalized workout routines, helps track progress and gives nutrition advice.",
+        "stack": ["React Native", "Supabase", "Node.js"]
+      },
+      {
+        "title": "Cresliant",
+        "description": "A powerful node-based image editor made in Python, offering intuitive image manipulation and enhancement through a user-friendly interface.",
+        "stack": ["Python", "Dear PyGui", "Pillow"]
+      },
+      {
+        "title": "Shortlang",
+        "description": "A programming language designed for code golfing and competitive programming.",
+        "stack": ["Rust", "Interpreter", "Compiler"]
+      },
+      {
+        "title": "Hydrochess",
+        "description": "A chess engine written in Rust, with a focus on speed and efficiency. It has a rating of 2000+ on Lichess.",
+        "stack": ["Rust", "Data Structures", "Algorithms"]
+      }
+    ]
+  },
+  "resume": {
+    "aboutMe": "About Me",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "aboutDescription": "I am a software developer with a passion for learning and building new things. My expertise spans multiple technologies and frameworks, allowing me to adapt and excel in various projects.",
+    "experienceDescription": "I have experience working in diverse environments and collaborating effectively within teams.",
+    "educationDescription": "I have studied at several institutions and have taken courses on various topics.",
+    "skillsDescription": "I have experience with various technologies and frameworks, which have enabled me to tackle a wide range of projects efficiently. My adaptability and continuous learning mindset ensure that I stay updated with the latest industry trends.",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "experienceField": "Experience",
+    "location": "Location",
+    "languages": "Languages",
+    "years": "years",
+    "locationValue": "Finland",
+    "languagesValue": "English, Finnish, Swedish",
+    "freelancer": "Freelancer",
+    "entrepreneur": "Entrepreneur",
+    "contributor": "Contributor",
+    "mobileAppDevelopment": "Mobile App Development",
+    "openSource": "Open Source",
+    "informationTechnology": "Information Technology",
+    "highSchoolDiploma": "High School Diploma",
+    "programmingCourses": "Programming Courses",
+    "tampereUniversity": "Tampere University of Applied Sciences",
+    "nokiaHighSchool": "Nokia High School",
+    "udemy": "Udemy"
+  }
+}

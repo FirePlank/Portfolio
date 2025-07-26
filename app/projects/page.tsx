@@ -9,46 +9,57 @@ import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/compon
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
+import { useTranslation } from 'react-i18next';
 
-const projects = [
-    {
-        num: '01',
-        title: 'Fitsmrt',
-        description: 'An AI fitness trainer and planner mobile app that creates personalized workout routines, helps track progress and gives nutrition advice.',
-        stack: [{name: 'React Native'}, {name: 'Supabase'}, {name: 'Node.js'}],
-        image: '/assets/projects/fitsmrt.webp',
-        live: 'https://fitsmrt.com',
-        github: 'https://github.com/fitsmrt'
-    },
-    {
-        num: '02',
-        title: 'Cresliant',
-        description: 'A powerful node-based image editor made in Python, offering intuitive image manipulation and enhancement through a user-friendly interface.',
-        stack: [{name: 'Python'}, {name: 'Dear PyGui'}, {name: 'Pillow'}],
-        image: '/assets/projects/cresliant-demo.mp4',
-        live: 'https://cresliant.github.io',
-        github: 'https://github.com/Cresliant/Cresliant'
-    },
-    {
-        num: '03',
-        title: 'Shortlang',
-        description: 'A programming language designed for code golfing and competitive programming.',
-        stack: [{name: 'Rust'}, {name: 'Interpreter'}, {name: 'Compiler'}],
-        image: '/assets/projects/shortlang.webp',
-        github: 'https://github.com/ShortLang/ShortLang'
-    },
-    {
-        num: '04',
-        title: 'Hydrochess',
-        description: 'A chess engine written in Rust, with a focus on speed and efficiency. It has a rating of 2000+ on Lichess.',
-        stack: [{name: 'Rust'}, {name: 'Data Structures'}, {name: 'Algorithms'}],
-        image: '/assets/projects/chess.webp',
-        github: 'https://github.com/FirePlank/HydroChess'
-    }
-];
+// Project data is now loaded from translations
+const getProjects = (t: any) => {
+    const items = t('projects.items', { returnObjects: true }) as Array<{
+        title: string;
+        description: string;
+        stack: string[];
+    }>;
+    
+    // Static data that doesn't need translation
+    const staticData = [
+        {
+            num: '01',
+            image: '/assets/projects/fitsmrt.webp',
+            live: 'https://fitsmrt.com',
+            github: 'https://github.com/fitsmrt'
+        },
+        {
+            num: '02',
+            image: '/assets/projects/cresliant-demo.mp4',
+            live: 'https://cresliant.github.io',
+            github: 'https://github.com/Cresliant/Cresliant'
+        },
+        {
+            num: '03',
+            image: '/assets/projects/shortlang.webp',
+            github: 'https://github.com/ShortLang/ShortLang'
+        },
+        {
+            num: '04',
+            image: '/assets/projects/chess.webp',
+            github: 'https://github.com/FirePlank/HydroChess'
+        }
+    ];
+
+    // Merge translated content with static data
+    return items.map((item, index) => ({
+        ...staticData[index],
+        title: item.title,
+        description: item.description,
+        stack: item.stack.map(tech => ({ name: tech }))
+    }));
+};
 
 const Projects = () => {
+    const { t } = useTranslation();
     const [projectIndex, setProjectIndex] = useState(0);
+    
+    // Get projects data from translations
+    const projects = getProjects(t);
     const [imageDimensions, setImageDimensions] = useState(projects.map(() => ({width: 0, height: 0})));
 
     useEffect(() => {
@@ -114,7 +125,7 @@ const Projects = () => {
                                                         className="text-white text-3xl group-hover:text-accent"/>
                                                 </TooltipTrigger>
                                                 <TooltipContent>
-                                                    <p>Visit website</p>
+                                                    <p>{t('projects.visitWebsite')}</p>
                                                 </TooltipContent>
                                             </Tooltip>
                                         </TooltipProvider>
@@ -128,7 +139,7 @@ const Projects = () => {
                                                 <BsGithub className="text-white text-3xl group-hover:text-accent"/>
                                             </TooltipTrigger>
                                             <TooltipContent>
-                                                <p>View source</p>
+                                                <p>{t('projects.viewSource')}</p>
                                             </TooltipContent>
                                         </Tooltip>
                                     </TooltipProvider>

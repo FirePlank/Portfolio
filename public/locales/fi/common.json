@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Koti",
+    "resume": "Ansioluettelo", 
+    "projects": "Projektit",
+    "contact": "Ota yhteyttä"
+  },
+  "home": {
+    "title": "Ohjelmistokehittäjä",
+    "greeting": "Hei, olen",
+    "name": "Jesse Sissala",
+    "description": "Olen intohimoinen oppimaan ja rakentamaan monipuolisilla teknologioilla ja frameworkeilla.",
+    "downloadCV": "Lataa CV"
+  },
+  "cv": {
+    "downloadCV": "Lataa CV",
+    "finnishVersion": "Suomenkielinen versio",
+    "englishVersion": "Englanninkielinen versio"
+  },
+  "stats": {
+    "yearsExperience": "Vuosien kokemus",
+    "projectsCompleted": "Projektia valmistunut", 
+    "technologiesUsed": "Teknologiaa käytetty",
+    "codeCommits": "Koodimuutosta",
+    "starsReceived": "Tähteä saatu"
+  },
+  "contact": {
+    "title": "Ota yhteyttä",
+    "description": "Olen aina avoin uusille mahdollisuuksille, yhteistyölle ja projekteille. Ota rohkeasti yhteyttä.",
+    "namePlaceholder": "Nimi",
+    "emailPlaceholder": "Sähköposti",
+    "messagePlaceholder": "Viesti",
+    "sendMessage": "Lähetä viesti",
+    "sending": "Lähetetään...",
+    "successMessage": "Viesti on lähetetty onnistuneesti!",
+    "fillFieldsCorrectly": "Täytä kaikki kentät oikein.",
+    "captchaExpired": "CAPTCHA vanhentunut. Yritä uudelleen.",
+    "phone": "Puhelin",
+    "email": "Sähköposti",
+    "discord": "Discord",
+    "hcaptchaText": "Tämä sivusto on suojattu hCaptchalla. Sen",
+    "privacyPolicy": " Tietosuojakäytäntö",
+    "termsOfService": " Käyttöehdot",
+    "and": "ja",
+    "apply": " pätevät."
+  },
+  "projects": {
+    "visitWebsite": "Vieraile sivustolla",
+    "viewSource": "Näytä lähdekoodi",
+    "items": [
+      {
+        "title": "Fitsmrt",
+        "description": "Älykäs tekoälyllä toteutettu henkilökohtainen valmentaja ja treeni suunnittelu sovellus, joka luo henkilökohtaisia harjoitusohjelmia, auttaa seuraamaan edistymistä ja tarjoaa ravitsemusneuvontaa.",
+        "stack": ["React Native", "Supabase", "Node.js"]
+      },
+      {
+        "title": "Cresliant",
+        "description": "Tehokas solmupohjainen kuvankäsittelyohjelma Pythonilla, joka tarjoaa intuitiivisen käyttöliittymän kuvien muokkaamiseen ja parantamiseen.",
+        "stack": ["Python", "Dear PyGui", "Pillow"]
+      },
+      {
+        "title": "Shortlang",
+        "description": "Ohjelmointikieli, joka on suunniteltu koodigolffaamiseen ja kilpailuohjelmointiin.",
+        "stack": ["Rust", "Tulkki", "Kääntäjä"]
+      },
+      {
+        "title": "Hydrochess",
+        "description": "Shakkibotti, joka on toteutettu Rustilla nopeuteen ja tehokkuuteen keskittyen. Sillä on 2000+ vahvuusluku Lichess-palvelussa.",
+        "stack": ["Rust", "Tietorakenteet", "Algoritmit"]
+      }
+    ]
+  },
+  "resume": {
+    "aboutMe": "Minusta",
+    "experience": "Kokemus",
+    "education": "Koulutus",
+    "skills": "Taidot",
+    "aboutDescription": "Olen ohjelmistokehittäjä, jolla on intohimo oppia ja rakentaa uusia asioita. Osaamiseni kattaa useita teknologioita ja frameworkkeja, mikä mahdollistaa sopeutumisen ja menestymisen erilaisissa projekteissa.",
+    "experienceDescription": "Minulla on kokemusta työskentelystä erilaisissa ympäristöissä ja tehokkaasta yhteistyöstä tiimien kanssa.",
+    "educationDescription": "Olen opiskellut useissa oppilaitoksissa ja suorittanut kursseja eri aiheista.",
+    "skillsDescription": "Minulla on kokemusta erilaisista teknologioista ja frameworkeista, jotka ovat mahdollistaneet monipuolisten projektien tehokkaan toteuttamisen. Sopeutumiskykyni ja jatkuva oppimishalu varmistavat, että pysyn ajan tasalla alan uusimmista trendeistä.",
+    "name": "Nimi",
+    "phone": "Puhelin",
+    "email": "Sähköposti",
+    "experienceField": "Kokemus",
+    "location": "Sijainti",
+    "languages": "Kielet",
+    "years": "vuotta",
+    "locationValue": "Suomi",
+    "languagesValue": "Englanti, Suomi, Ruotsi",
+    "freelancer": "Freelancer",
+    "entrepreneur": "Yrittäjä",
+    "contributor": "Avustaja",
+    "mobileAppDevelopment": "Mobiilisovelluskehitys",
+    "openSource": "Avoin lähdekoodi",
+    "informationTechnology": "Tietotekniikka",
+    "highSchoolDiploma": "Ylioppilastutkinto",
+    "programmingCourses": "Ohjelmointikurssit",
+    "tampereUniversity": "Tampereen ammattikorkeakoulu",
+    "nokiaHighSchool": "Nokian lukio",
+    "udemy": "Udemy"
+  }
+}

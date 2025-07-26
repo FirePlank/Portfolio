@@ -5,18 +5,21 @@ import Link from 'next/link';
 import {CiMenuFries} from "react-icons/ci";
 import {usePathname} from "next/navigation";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const links = [
-    {name: 'home', path: '/'},
-    {name: 'resume', path: '/resume'},
-    {name: 'projects', path: '/projects'},
+    {name: 'nav.home', path: '/'},
+    {name: 'nav.resume', path: '/resume'},
+    {name: 'nav.projects', path: '/projects'},
     // {name: 'apps', path: '/apps'},
-    {name: 'contact', path: '/contact'}
+    {name: 'nav.contact', path: '/contact'}
 ];
 
 const MobileNav = () => {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const { t } = useTranslation();
 
     useEffect(() => {
         setIsOpen(false);
@@ -44,10 +47,14 @@ const MobileNav = () => {
                     {links.map((link, index) => (
                         <Link key={index} href={link.path}
                               className={`text-xl capitalize hover:text-accent transition-all ${pathname === link.path && 'text-accent border-b-2 border-accent'}`}>
-                            {link.name}
+                            {t(link.name)}
                         </Link>
                     ))}
                 </nav>
+                {/* Language Switcher */}
+                <div className="mt-8 flex justify-center">
+                    <LanguageSwitcher/>
+                </div>
             </SheetContent>
         </Sheet>
     );

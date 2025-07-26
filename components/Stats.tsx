@@ -2,6 +2,7 @@
 import CountUp from "react-countup";
 import {useEffect, useState} from "react";
 import {getStats} from "@/app/actions";
+import { useTranslation } from 'react-i18next';
 
 const getExactYears = (startDate: Date, endDate: Date) => {
     const start = new Date(startDate);
@@ -26,6 +27,7 @@ const getExactYears = (startDate: Date, endDate: Date) => {
 
 const Stats = () => {
     const [stats, setStats] = useState<{ num: number, text: string, approx: boolean }[]>([]);
+    const { t } = useTranslation();
 
     useEffect(() => {
         getStats().then((stats) => {
@@ -33,28 +35,28 @@ const Stats = () => {
                 setStats([
                     {
                         num: getExactYears(new Date('2020-03-01'), new Date()),
-                        text: 'Years of experience',
+                        text: t('stats.yearsExperience'),
                         approx: false
                     },
                     {
                         num: stats.projectsCreated,
-                        text: 'Projects created',
+                        text: t('stats.projectsCompleted'),
                         approx: false
                     },
                     {
                         num: stats.totalCommits,
-                        text: 'Commits made',
+                        text: t('stats.codeCommits'),
                         approx: true
                     },
                     {
                         num: stats.starsReceived,
-                        text: 'Stars received',
+                        text: t('stats.starsReceived'),
                         approx: false
                     }
                 ]);
             }
         });
-    }, []);
+    }, [t]);
 
     return <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
         <div className="container mx-auto">
