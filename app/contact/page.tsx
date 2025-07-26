@@ -59,7 +59,7 @@ const Contact = () => {
             setError(false);
             setInfo('');
         }
-    }, [name, email, message, isFormValid]);
+    }, [name, email, message, isFormValid, t]);
 
     const onCAPTCHAChange = (token: string | null) => {
         if (!token) {

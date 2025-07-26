@@ -10,14 +10,25 @@ import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
 import { useTranslation } from 'react-i18next';
+import type { TFunction } from 'i18next';
+
+interface ProjectItem {
+    title: string;
+    description: string;
+    stack: string[];
+}
+
+interface Project extends Omit<ProjectItem, 'stack'> {
+    num: string;
+    image: string;
+    live?: string;
+    github: string;
+    stack: { name: string }[];
+}
 
 // Project data is now loaded from translations
-const getProjects = (t: any) => {
-    const items = t('projects.items', { returnObjects: true }) as Array<{
-        title: string;
-        description: string;
-        stack: string[];
-    }>;
+const getProjects = (t: TFunction): Project[] => {
+    const items = t('projects.items', { returnObjects: true }) as ProjectItem[];
     
     // Static data that doesn't need translation
     const staticData = [
@@ -65,7 +76,7 @@ const Projects = () => {
     useEffect(() => {
         const loadImageDimensions = async () => {
             const dimensions = await Promise.all(projects.map(project => {
-                return new Promise<{ width: number; height: number }>(resolve => {
+                return new Promise<{ width: number; height: number }>((resolve) => {
                     if (project.image.endsWith('.mp4')) {
                         resolve({width: 100, height: 100});
                     } else {
@@ -74,6 +85,9 @@ const Projects = () => {
                         img.onload = () => {
                             resolve({width: img.width, height: img.height});
                         };
+                        img.onerror = () => {
+                            resolve({width: 100, height: 100});
+                        };
                     }
                 });
             }));
@@ -81,7 +95,7 @@ const Projects = () => {
         };
 
         loadImageDimensions();
-    }, []);
+    }, [projects]);
 
     return (
         <motion.section

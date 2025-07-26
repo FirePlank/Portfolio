@@ -16,6 +16,50 @@ import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/compon
 import {ScrollArea} from "@/components/ui/scroll-area";
 import {motion} from "framer-motion";
 import { useTranslation } from 'react-i18next';
+import type { TFunction } from 'i18next';
+
+interface InfoItem {
+    fieldName: string;
+    fieldValue: string;
+}
+
+interface AboutData {
+    title: string;
+    description: string;
+    info: InfoItem[];
+}
+
+interface ExperienceItem {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+    items: Array<{
+        company: string;
+        role: string;
+        duration: string;
+    }>;
+}
+
+interface EducationItem {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+    items: Array<{
+        institution: string;
+        degree: string;
+        duration: string;
+    }>;
+}
+
+interface SkillCategory {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+    items: Array<{
+        icon: React.ReactNode;
+        name: string;
+    }>;
+}
 
 const getExactYears = (startDate: Date, endDate: Date) => {
     const start = new Date(startDate);
@@ -38,7 +82,7 @@ const getExactYears = (startDate: Date, endDate: Date) => {
     return Math.round(years + months / 12 + days / 365);
 };
 
-const getAboutData = (t: any) => ({
+const getAboutData = (t: TFunction): AboutData => ({
     title: t('resume.aboutMe'),
     description: t('resume.aboutDescription'),
     info: [
@@ -69,7 +113,7 @@ const getAboutData = (t: any) => ({
     ]
 });
 
-const getExperienceData = (t: any) => ({
+const getExperienceData = (t: TFunction): ExperienceItem => ({
     icon: <FaBriefcase/>,
     title: t('resume.experience'),
     description: t('resume.experienceDescription'),
@@ -92,7 +136,7 @@ const getExperienceData = (t: any) => ({
     ]
 });
 
-const getEducationData = (t: any) => ({
+const getEducationData = (t: TFunction): EducationItem => ({
     icon: <FaGraduationCap/>,
     title: t('resume.education'),
     description: t('resume.educationDescription'),
@@ -115,7 +159,7 @@ const getEducationData = (t: any) => ({
     ]
 });
 
-const getSkillsData = (t: any) => ({
+const getSkillsData = (t: TFunction): SkillCategory => ({
     icon: <FaTools/>,
     title: t('resume.skills'),
     description: t('resume.skillsDescription'),
