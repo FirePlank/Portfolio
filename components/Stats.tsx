@@ -60,12 +60,12 @@ const Stats = () => {
 
     return <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
         <div className="container mx-auto">
-            <div className="grid grid-cols-2 gap-6 max-w-[80vw] mx-auto xl:max-w-none md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-6 max-w-[90vw] mx-auto xl:max-w-none md:grid-cols-4 md:gap-6">
                 {stats.map((stat, index) => (
-                    <div key={index} className="flex gap-4 items-center justify-center xl:justify-start">
+                    <div key={index} className="flex gap-2 xs:gap-3 md:gap-4 items-center justify-center xl:justify-start">
                         <CountUp end={stat.num} duration={3.5} delay={0.2} suffix={stat.approx ? '+' : ''}
-                                 className="text-4xl xl:text-6xl font-extrabold"/>
-                        <p className={`${stat.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"} leading-snug text-white/80`}>
+                                 className="text-3xl sm:text-4xl xl:text-6xl font-extrabold shrink-0"/>
+                        <p className="text-sm xs:text-base leading-tight md:leading-snug text-white/80 break-words max-w-[calc(100%-60px)] sm:max-w-[calc(100%-80px)] xl:max-w-[150px]">
                             {stat.text}
                         </p>
                     </div>

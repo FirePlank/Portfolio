@@ -106,7 +106,7 @@ const Contact = () => {
     return <motion.section
         initial={{opacity: 0}}
         animate={{opacity: 1, transition: {duration: 0.25, delay: 0.4, ease: "easeIn"}}}
-        className="min-h-[84vh] flex flex-col justify-between py-12 xl:px-0"
+        className="min-h-screen flex flex-col justify-between py-12 xl:px-0"
     >
         <HCaptcha
             size="invisible"
@@ -157,11 +157,11 @@ const Contact = () => {
                                         {item.icon}
                                     </div>
                                 </div>
-                                <div className="flex-1">
+                                <div className="flex-1 min-w-0">
                                     <p className="text-white/60">
                                         {t(item.label)}
                                     </p>
-                                    <p className="text-xl">
+                                    <p className="text-base md:text-lg xl:text-xl break-words overflow-hidden">
                                         {item.value}
                                     </p>
                                 </div>

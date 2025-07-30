@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+    html {
+        @apply min-h-screen bg-primary;
+    }
     body {
-        @apply font-primary bg-primary text-white leading-loose;
+        @apply font-primary bg-primary text-white leading-loose min-h-screen;
     }
 
     .h1 {

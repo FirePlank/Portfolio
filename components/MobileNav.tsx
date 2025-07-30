@@ -33,9 +33,9 @@ const MobileNav = () => {
             <VisuallyHidden.Root>
                 <SheetTitle>Menu</SheetTitle>
             </VisuallyHidden.Root>
-            <SheetContent className="flex flex-col z-[1000]">
+            <SheetContent className="flex flex-col z-[1000] h-full">
                 {/* Logo */}
-                <div className="mt-32 mb-40 text-center text-2xl">
+                <div className="mt-[12vh] mb-[9vh] text-center text-2xl">
                     <Link href="/">
                         <h1 className="text-4xl font-semibold">
                             Jesse<span className="text-accent">.</span>
@@ -43,7 +43,7 @@ const MobileNav = () => {
                     </Link>
                 </div>
                 {/* Navigation */}
-                <nav className="flex flex-col justify-center items-center gap-8">
+                <nav className="flex flex-col justify-center items-center gap-[3vh]">
                     {links.map((link, index) => (
                         <Link key={index} href={link.path}
                               className={`text-xl capitalize hover:text-accent transition-all ${pathname === link.path && 'text-accent border-b-2 border-accent'}`}>
@@ -52,7 +52,7 @@ const MobileNav = () => {
                     ))}
                 </nav>
                 {/* Language Switcher */}
-                <div className="mt-8 flex justify-center">
+                <div className="mt-auto pb-8 flex justify-center">
                     <LanguageSwitcher/>
                 </div>
             </SheetContent>

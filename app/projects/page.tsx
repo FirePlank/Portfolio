@@ -101,12 +101,12 @@ const Projects = () => {
         <motion.section
             initial={{opacity: 0}}
             animate={{opacity: 1, transition: {duration: 0.25, delay: 0.4, ease: "easeIn"}}}
-            className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0"
+            className="min-h-[80vh] flex flex-col justify-center xl:py-0"
         >
             <div className="container mx-auto">
                 <div className="flex flex-col xl:flex-row xl:gap-[30px]">
                     <div
-                        className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+                        className="mt-[-10vh] md:mt-0 w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
                         <div className="flex flex-col gap-[30px] h-[50%]">
                             <div className="text-8xl leading-none font-extrabold text-transparent"
                                  style={{WebkitTextStroke: '1px white'}}>
@@ -118,7 +118,7 @@ const Projects = () => {
                             <p className="text-white/60">
                                 {projects[projectIndex].description}
                             </p>
-                            <ul className="flex gap-4">
+                            <ul className="flex flex-wrap gap-x-4 gap-y-2">
                                 {projects[projectIndex].stack.map((tech, index) => (
                                     <li key={index} className="text-xl text-accent">
                                         {tech.name}
@@ -165,7 +165,7 @@ const Projects = () => {
                         <Swiper
                             spaceBetween={30}
                             slidesPerView={1}
-                            className="xl:h-[520px] mb-12 flex justify-center items-center"
+                            className="xl:h-[520px] mb-6 xl:mb-12 flex justify-center items-center"
                             onSlideChange={(swiper) => setProjectIndex(swiper.activeIndex)}
                         >
                             {projects.map((project, index) => (
