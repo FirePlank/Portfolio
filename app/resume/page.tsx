@@ -230,7 +230,9 @@ const Resume = () => {
                             {about.info.map((info, index) => (
                                 <div key={index} className="flex gap-4">
                                     <span className="text-accent">{info.fieldName}:</span>
-                                    <span>{info.fieldValue}</span>
+                                    <span className="min-w-0 flex-1 text-[clamp(.97rem,3.5vw,2rem)] sm:text-[clamp(.97rem,4vw,1.4rem)] md:text-base">
+                                        {info.fieldValue}
+                                    </span>
                                 </div>
                             ))}
                         </div>
