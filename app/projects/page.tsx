@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 
 import {motion} from "framer-motion";
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import {BsArrowUpRight, BsGithub} from "react-icons/bs";
@@ -77,8 +77,8 @@ const getEmbedUrl = (videoUrl?: string) => {
 const Projects = () => {
     const { t } = useTranslation();
     const [projectIndex, setProjectIndex] = useState(0);
-    const projects = getProjects(t);
-    const [imageDimensions, setImageDimensions] = useState(projects.map(() => ({width: 0, height: 0})));
+    const projects = useMemo(() => getProjects(t), [t]);
+    const [imageDimensions, setImageDimensions] = useState<Array<{width: number; height: number}>>(() => projects.map(() => ({width: 100, height: 100})));
 
     useEffect(() => {
         const loadImageDimensions = async () => {
@@ -134,31 +134,39 @@ const Projects = () => {
                             <div className="border border-white/20" />
                             <div className="flex items-center gap-4">
                                 {projects[projectIndex].live && (
-                                    <Link href={projects[projectIndex].live} target="_blank">
-                                        <TooltipProvider delayDuration={100}>
-                                            <Tooltip>
-                                                <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                    <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                                                </TooltipTrigger>
-                                                <TooltipContent>
-                                                    <p>{t('projects.visitWebsite')}</p>
-                                                </TooltipContent>
-                                            </Tooltip>
-                                        </TooltipProvider>
-                                    </Link>
-                                )}
-                                <Link href={projects[projectIndex].github} target="_blank">
                                     <TooltipProvider delayDuration={100}>
                                         <Tooltip>
-                                            <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                                            <TooltipTrigger asChild>
+                                                <Link
+                                                    href={projects[projectIndex].live}
+                                                    target="_blank"
+                                                    className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group cursor-pointer"
+                                                >
+                                                    <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                                                </Link>
                                             </TooltipTrigger>
                                             <TooltipContent>
-                                                <p>{t('projects.viewSource')}</p>
+                                                <p>{t('projects.visitWebsite')}</p>
                                             </TooltipContent>
                                         </Tooltip>
                                     </TooltipProvider>
-                                </Link>
+                                )}
+                                <TooltipProvider delayDuration={100}>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Link
+                                                href={projects[projectIndex].github}
+                                                target="_blank"
+                                                className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group cursor-pointer"
+                                            >
+                                                <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                                            </Link>
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p>{t('projects.viewSource')}</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
                             </div>
                         </div>
                     </div>
@@ -169,7 +177,10 @@ const Projects = () => {
                             className="xl:h-[520px] mb-6 xl:mb-12 flex justify-center items-center"
                             onSlideChange={(swiper) => setProjectIndex(swiper.activeIndex)}
                         >
-                            {projects.map((project, index) => (
+                            {projects.map((project, index) => {
+                                const dimensions = imageDimensions[index] ?? {width: 100, height: 100};
+
+                                return (
                                 <SwiperSlide key={index} className="w-full flex justify-center items-center">
                                     <div className="relative w-full h-full flex justify-center items-center">
                                         {project.video ? (
@@ -195,8 +206,8 @@ const Projects = () => {
                                             <div className="flex justify-center items-center w-full h-full">
                                                 <div
                                                     style={{
-                                                        width: imageDimensions[index].width,
-                                                        height: imageDimensions[index].height,
+                                                        width: dimensions.width,
+                                                        height: dimensions.height,
                                                         display: 'flex',
                                                         justifyContent: 'center',
                                                         alignItems: 'center'
@@ -205,8 +216,8 @@ const Projects = () => {
                                                     <Image
                                                         src={project.image}
                                                         alt={project.title}
-                                                        width={imageDimensions[index].width}
-                                                        height={imageDimensions[index].height}
+                                                        width={dimensions.width}
+                                                        height={dimensions.height}
                                                         style={{objectFit: 'contain'}}
                                                         className="object-center"
                                                     />
@@ -215,7 +226,8 @@ const Projects = () => {
                                         )}
                                     </div>
                                 </SwiperSlide>
-                            ))}
+                                );
+                            })}
                             <WorkSliderBtns
                                 containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
                                 btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
@@ -229,3 +241,5 @@ const Projects = () => {
 };
 
 export default Projects;
+
+

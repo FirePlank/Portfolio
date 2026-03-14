@@ -214,10 +214,10 @@ const Resume = () => {
         <div className="container mx-auto">
             <Tabs defaultValue="about" className="flex flex-col xl:flex-row gap-[60px]">
                 <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-4">
-                    <TabsTrigger value="about">{t('resume.aboutMe')}</TabsTrigger>
-                    <TabsTrigger value="experience">{t('resume.experience')}</TabsTrigger>
-                    <TabsTrigger value="education">{t('resume.education')}</TabsTrigger>
-                    <TabsTrigger value="skills">{t('resume.skills')}</TabsTrigger>
+                    <TabsTrigger value="about" className="cursor-pointer">{t('resume.aboutMe')}</TabsTrigger>
+                    <TabsTrigger value="experience" className="cursor-pointer">{t('resume.experience')}</TabsTrigger>
+                    <TabsTrigger value="education" className="cursor-pointer">{t('resume.education')}</TabsTrigger>
+                    <TabsTrigger value="skills" className="cursor-pointer">{t('resume.skills')}</TabsTrigger>
                 </TabsList>
 
                 {/* Content */}
@@ -309,7 +309,7 @@ const Resume = () => {
                                         <TooltipProvider delayDuration={100}>
                                             <Tooltip>
                                                 <TooltipTrigger
-                                                    className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                                                    className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group cursor-pointer">
                                                     <div
                                                         className="text-6xl group-hover:text-accent transition-all duration-300">
                                                         {skill.icon}

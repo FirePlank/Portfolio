@@ -6,15 +6,14 @@ import Stairs from "@/components/Stairs";
 const StairTransition = () => {
     const pathname = usePathname();
 
-    return (
-        <AnimatePresence>
-            <div key={pathname}>
-                <div className="h-screen w-screen fixed top-0 left-0 right-0 pointer-events-none z-[100] flex">
-                    <Stairs />
-                </div>
+    return <AnimatePresence mode="wait">
+        <div key={pathname}>
+            <div className="h-screen w-screen fixed top-0 left-0 right-0 pointer-events-none z-100 flex">
+                <Stairs/>
+            </div>
+        </div>
 
-                <motion.div
-                    className="h-screen w-screen fixed bg-primary top-0 pointer-events-none z-[99]"
+        <motion.div className="h-screen w-screen fixed bg-primary top-0 pointer-events-none z-99"
                     initial={{opacity: 1}}
                     animate={{
                         opacity: 0,
@@ -24,10 +23,8 @@ const StairTransition = () => {
                             ease: "easeInOut"
                         }
                     }}
-                />
-            </div>
-        </AnimatePresence>
-    );
+        />
+    </AnimatePresence>
 };
 
 export default StairTransition;
