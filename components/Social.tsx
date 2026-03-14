@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {FaGithub, FaLinkedin, FaTwitter} from "react-icons/fa";
+import {FaGithub, FaLinkedin} from "react-icons/fa";
 
 const socials = [
     {
@@ -9,10 +9,6 @@ const socials = [
     {
         icon: <FaLinkedin/>,
         link: 'https://www.linkedin.com/in/jesse-sissala'
-    },
-    {
-        icon: <FaTwitter/>,
-        link: 'https://x.com/fireplank'
     }
 ];
 

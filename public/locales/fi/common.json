@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Koti",
-    "resume": "Ansioluettelo", 
+    "resume": "Ansioluettelo",
     "projects": "Projektit",
     "contact": "Ota yhteyttä"
   },
@@ -19,7 +19,7 @@
   },
   "stats": {
     "yearsExperience": "Vuosien kokemus",
-    "projectsCompleted": "Projektia valmistunut", 
+    "projectsCompleted": "Projektia valmistunut",
     "technologiesUsed": "Teknologiaa käytetty",
     "codeCommits": "Koodimuutosta",
     "starsReceived": "Tähteä saatu"
@@ -46,12 +46,18 @@
   },
   "projects": {
     "visitWebsite": "Vieraile sivustolla",
+    "watchVideo": "Katso video",
     "viewSource": "Näytä lähdekoodi",
     "items": [
       {
         "title": "Fitsmrt",
-        "description": "Älykäs tekoälyllä toteutettu henkilökohtainen valmentaja ja treeni suunnittelu sovellus, joka luo henkilökohtaisia harjoitusohjelmia, auttaa seuraamaan edistymistä ja tarjoaa ravitsemusneuvontaa.",
+        "description": "Älykäs tekoälyllä toteutettu henkilökohtainen valmentaja ja treenisuunnittelusovellus, joka luo henkilökohtaisia harjoitusohjelmia, auttaa seuraamaan edistymistä ja tarjoaa ravitsemusneuvontaa.",
         "stack": ["React Native", "Supabase", "Node.js"]
+      },
+      {
+        "title": "HydroChess",
+        "description": "Rustilla tehty ja WebAssemblyksi käännetty shakkikone Infinite Chess -alustalle. Tukee äärettömän suuria pelilautoja, keijunappuloita ja nopeaa hakua. Se on infinitechess.orgin ensimmäinen ja toistaiseksi ainoa shakkikone.",
+        "stack": ["Rust", "WebAssembly", "Algoritmit"]
       },
       {
         "title": "Cresliant",
@@ -62,11 +68,6 @@
         "title": "Shortlang",
         "description": "Ohjelmointikieli, joka on suunniteltu koodigolffaamiseen ja kilpailuohjelmointiin.",
         "stack": ["Rust", "Tulkki", "Kääntäjä"]
-      },
-      {
-        "title": "Hydrochess",
-        "description": "Shakkibotti, joka on toteutettu Rustilla nopeuteen ja tehokkuuteen keskittyen. Sillä on 2000+ vahvuusluku Lichess-palvelussa.",
-        "stack": ["Rust", "Tietorakenteet", "Algoritmit"]
       }
     ]
   },

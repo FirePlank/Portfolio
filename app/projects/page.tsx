@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {motion} from "framer-motion";
 import React, {useState, useEffect} from "react";
@@ -22,15 +22,14 @@ interface Project extends Omit<ProjectItem, 'stack'> {
     num: string;
     image: string;
     live?: string;
+    video?: string;
     github: string;
     stack: { name: string }[];
 }
 
-// Project data is now loaded from translations
 const getProjects = (t: TFunction): Project[] => {
     const items = t('projects.items', { returnObjects: true }) as ProjectItem[];
-    
-    // Static data that doesn't need translation
+
     const staticData = [
         {
             num: '01',
@@ -40,44 +39,52 @@ const getProjects = (t: TFunction): Project[] => {
         },
         {
             num: '02',
+            image: '',
+            live: 'https://infinitechess.org/',
+            github: 'https://github.com/FirePlank/infinite-chess-engine',
+            video: 'https://www.youtube.com/watch?v=vpE7u6ya1k8'
+        },
+        {
+            num: '03',
             image: '/assets/projects/cresliant-demo.mp4',
             live: 'https://cresliant.github.io',
             github: 'https://github.com/Cresliant/Cresliant'
         },
         {
-            num: '03',
+            num: '04',
             image: '/assets/projects/shortlang.webp',
             github: 'https://github.com/ShortLang/ShortLang'
-        },
-        {
-            num: '04',
-            image: '/assets/projects/chess.webp',
-            github: 'https://github.com/FirePlank/HydroChess'
         }
     ];
 
-    // Merge translated content with static data
     return items.map((item, index) => ({
         ...staticData[index],
         title: item.title,
         description: item.description,
-        stack: item.stack.map(tech => ({ name: tech }))
+        stack: item.stack.map((tech) => ({ name: tech }))
     }));
+};
+
+const getEmbedUrl = (videoUrl?: string) => {
+    if (!videoUrl) return undefined;
+
+    const url = new URL(videoUrl);
+    const id = url.searchParams.get("v");
+
+    return id ? `https://www.youtube.com/embed/${id}` : videoUrl;
 };
 
 const Projects = () => {
     const { t } = useTranslation();
     const [projectIndex, setProjectIndex] = useState(0);
-    
-    // Get projects data from translations
     const projects = getProjects(t);
     const [imageDimensions, setImageDimensions] = useState(projects.map(() => ({width: 0, height: 0})));
 
     useEffect(() => {
         const loadImageDimensions = async () => {
-            const dimensions = await Promise.all(projects.map(project => {
+            const dimensions = await Promise.all(projects.map((project) => {
                 return new Promise<{ width: number; height: number }>((resolve) => {
-                    if (project.image.endsWith('.mp4')) {
+                    if (!project.image || project.image.endsWith('.mp4')) {
                         resolve({width: 100, height: 100});
                     } else {
                         const img = new window.Image();
@@ -105,11 +112,9 @@ const Projects = () => {
         >
             <div className="container mx-auto">
                 <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-                    <div
-                        className="mt-[-10vh] md:mt-0 w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+                    <div className="mt-[-10vh] md:mt-0 w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
                         <div className="flex flex-col gap-[30px] h-[50%]">
-                            <div className="text-8xl leading-none font-extrabold text-transparent"
-                                 style={{WebkitTextStroke: '1px white'}}>
+                            <div className="text-8xl leading-none font-extrabold text-transparent" style={{WebkitTextStroke: '1px white'}}>
                                 {projects[projectIndex].num}
                             </div>
                             <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
@@ -122,21 +127,18 @@ const Projects = () => {
                                 {projects[projectIndex].stack.map((tech, index) => (
                                     <li key={index} className="text-xl text-accent">
                                         {tech.name}
-                                        {index !== projects[projectIndex].stack.length - 1 &&
-                                            <span className="text-white/60">,</span>}
+                                        {index !== projects[projectIndex].stack.length - 1 && <span className="text-white/60">,</span>}
                                     </li>
                                 ))}
                             </ul>
-                            <div className="border border-white/20"/>
+                            <div className="border border-white/20" />
                             <div className="flex items-center gap-4">
                                 {projects[projectIndex].live && (
                                     <Link href={projects[projectIndex].live} target="_blank">
                                         <TooltipProvider delayDuration={100}>
                                             <Tooltip>
-                                                <TooltipTrigger
-                                                    className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                    <BsArrowUpRight
-                                                        className="text-white text-3xl group-hover:text-accent"/>
+                                                <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                                                    <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                                                 </TooltipTrigger>
                                                 <TooltipContent>
                                                     <p>{t('projects.visitWebsite')}</p>
@@ -148,9 +150,8 @@ const Projects = () => {
                                 <Link href={projects[projectIndex].github} target="_blank">
                                     <TooltipProvider delayDuration={100}>
                                         <Tooltip>
-                                            <TooltipTrigger
-                                                className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                <BsGithub className="text-white text-3xl group-hover:text-accent"/>
+                                            <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                                                <BsGithub className="text-white text-3xl group-hover:text-accent" />
                                             </TooltipTrigger>
                                             <TooltipContent>
                                                 <p>{t('projects.viewSource')}</p>
@@ -171,7 +172,18 @@ const Projects = () => {
                             {projects.map((project, index) => (
                                 <SwiperSlide key={index} className="w-full flex justify-center items-center">
                                     <div className="relative w-full h-full flex justify-center items-center">
-                                        {project.image.endsWith('.mp4') ? (
+                                        {project.video ? (
+                                            <div className="w-full aspect-video overflow-hidden rounded-xl bg-black/30">
+                                                <iframe
+                                                    src={getEmbedUrl(project.video)}
+                                                    title={project.title}
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    referrerPolicy="strict-origin-when-cross-origin"
+                                                    allowFullScreen
+                                                    className="h-full w-full border-0"
+                                                />
+                                            </div>
+                                        ) : project.image.endsWith('.mp4') ? (
                                             <video
                                                 src={project.image}
                                                 autoPlay
@@ -181,21 +193,22 @@ const Projects = () => {
                                             />
                                         ) : (
                                             <div className="flex justify-center items-center w-full h-full">
-                                                <div style={{
-                                                    width: imageDimensions[index].width,
-                                                    height: imageDimensions[index].height,
-                                                    display: 'flex',
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center'
-                                                }}>
+                                                <div
+                                                    style={{
+                                                        width: imageDimensions[index].width,
+                                                        height: imageDimensions[index].height,
+                                                        display: 'flex',
+                                                        justifyContent: 'center',
+                                                        alignItems: 'center'
+                                                    }}
+                                                >
                                                     <Image
                                                         src={project.image}
                                                         alt={project.title}
-                                                        layout="intrinsic"
                                                         width={imageDimensions[index].width}
                                                         height={imageDimensions[index].height}
-                                                        objectFit="contain"
-                                                        className="object-center object-contain"
+                                                        style={{objectFit: 'contain'}}
+                                                        className="object-center"
                                                     />
                                                 </div>
                                             </div>

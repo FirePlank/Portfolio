@@ -1,6 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "../tailwind.config.ts";
+@import "tailwindcss";
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 15px;
+}
 
 @layer base {
     html {

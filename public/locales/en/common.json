@@ -46,12 +46,18 @@
   },
   "projects": {
     "visitWebsite": "Visit website",
+    "watchVideo": "Watch video",
     "viewSource": "View source",
     "items": [
       {
         "title": "Fitsmrt",
         "description": "An AI fitness trainer and planner mobile app that creates personalized workout routines, helps track progress and gives nutrition advice.",
         "stack": ["React Native", "Supabase", "Node.js"]
+      },
+      {
+        "title": "HydroChess",
+        "description": "A Rust chess engine compiled to WebAssembly for Infinite Chess, built for arbitrary board sizes, fairy-piece variants, and fast search on infinitechess.org as the first and only engine on the platform.",
+        "stack": ["Rust", "WebAssembly", "Algorithms"]
       },
       {
         "title": "Cresliant",
@@ -62,11 +68,6 @@
         "title": "Shortlang",
         "description": "A programming language designed for code golfing and competitive programming.",
         "stack": ["Rust", "Interpreter", "Compiler"]
-      },
-      {
-        "title": "Hydrochess",
-        "description": "A chess engine written in Rust, with a focus on speed and efficiency. It has a rating of 2000+ on Lichess.",
-        "stack": ["Rust", "Data Structures", "Algorithms"]
       }
     ]
   },
