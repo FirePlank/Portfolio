@@ -55,7 +55,7 @@
         "stack": ["React Native", "Supabase", "Node.js"]
       },
       {
-        "title": "HydroChess",
+        "title": "Apeiron",
         "description": "A Rust chess engine compiled to WebAssembly for Infinite Chess, built for arbitrary board sizes, fairy-piece variants, and fast search on infinitechess.org as the first and only engine on the platform.",
         "stack": ["Rust", "WebAssembly", "Algorithms"]
       },

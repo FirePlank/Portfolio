@@ -34,7 +34,7 @@ const getProjects = (t: TFunction): Project[] => {
         {
             num: '01',
             image: '/assets/projects/fitsmrt.webp',
-            live: 'https://fitsmrt.com',
+            live: 'https://fitsmrt.github.io',
             github: 'https://github.com/fitsmrt'
         },
         {
@@ -241,5 +241,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-

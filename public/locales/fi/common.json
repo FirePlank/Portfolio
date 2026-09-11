@@ -55,7 +55,7 @@
         "stack": ["React Native", "Supabase", "Node.js"]
       },
       {
-        "title": "HydroChess",
+        "title": "Apeiron",
         "description": "Rustilla tehty ja WebAssemblyksi käännetty shakkikone Infinite Chess -alustalle. Tukee äärettömän suuria pelilautoja, keijunappuloita ja nopeaa hakua. Se on infinitechess.orgin ensimmäinen ja toistaiseksi ainoa shakkikone.",
         "stack": ["Rust", "WebAssembly", "Algoritmit"]
       },
